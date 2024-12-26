@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 *,
 *::before,
 *::after {
@@ -8,11 +10,74 @@
 
 html {
   box-sizing: border-box;
-  font-size: 62.5%;
+  font-family: "Poppins", serif;
 }
+
+
+
 @media only screen and (max-width: 62.5em) {
     html {
         box-sizing: border-box;
-        font-size: 62.5%;
+       /* font-size: 62.5%;*/
       }
   }
+
+  .container{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+    margin-bottom: 20px;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    background-color: white;
+    box-shadow: 0 2px 6px 1px rgb(143, 233, 255);
+    padding: 50px;
+    border-radius: 15px;
+    background-image: radial-gradient( circle farthest-corner at 3.7% 49.8%,  rgba(143,232,255,1) 21.9%, rgba(209,243,251,1) 52.9% );
+}
+
+mat-form-field{
+    width: 100%;
+}
+
+.button-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+
+}
+
+.button-container > p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.login-button{
+    background-color: #4285f4;
+    color: white;
+}
+
+mat-form-field {
+  margin-bottom: 15px !important;
+}
+
+mat-error{
+  font-size: 0.65rem;
+}

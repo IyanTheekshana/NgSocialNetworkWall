@@ -1,26 +1,41 @@
 <div class="container">
     <div class="form-container">
         <div class="title">Create Account</div>
-        <form>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <mat-form-field class="example-full-width" appearance="outline">
                 <mat-label>Email</mat-label>
                 <input type="email" matInput
-                       placeholder="Enter your email">
+                       placeholder="Enter your email" formControlName="email">
+                       @if (form.controls.email.invalid) {
+                        <mat-error>
+                          {{form.controls.email.hasError('required') ? 'Email is required' : 'Please enter a valid email'}}
+                        </mat-error>
+                     }
               </mat-form-field>
               <mat-form-field class="example-full-width" appearance="outline">
                 <mat-label>Username</mat-label>
                 <input type="text" matInput
-                       placeholder="Enter your username">
+                       placeholder="Enter your username" formControlName="username">
+                       @if (form.controls.email.invalid) {
+                        <mat-error>
+                          {{form.controls.email.hasError('required') ? 'Username is required' : 'Username cann\'t be longer than 10 characters'}}
+                        </mat-error>
+                     }
               </mat-form-field>
               <mat-form-field class="example-full-width" appearance="outline">
                 <mat-label>Password</mat-label>
-                <input type="email" matInput 
-                       placeholder="Enter your password">
+                <input type="password" matInput 
+                       placeholder="Enter your password" formControlName="password">
+                       @if (form.controls.password.invalid) {
+                        <mat-error>
+                          {{form.controls.password.hasError('required') ? 'Password is required' : 'Password should be longer than 6 characters'}}
+                        </mat-error>
+                     }
               </mat-form-field>
               <div class="button-container">
-                <button mat-flat-button class="login-button">Create Account</button>
+                <button [disabled]="form.invalid" type="submit" mat-flat-button class="login-button">Create account</button>
                 <p>OR</p>
-                <button mat-raised-button class="login-button">Login</button>
+                <a [routerLink]="['/login']"  mat-raised-button class="login-button">Login</a>
               </div>
         </form>
     </div>
